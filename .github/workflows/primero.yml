@@ -5,5 +5,13 @@ jobs:
   saludo:
     runs-on: ubuntu-latest
     steps:
-      - name: Mostrar mensaje inicial
-        run: echo "hola, Github Actions"
+      - name: Descargar el repositorio
+        uses: actions/checkout@v4
+      
+      - name: Configurar entorno Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Ejecutar programa Python
+        run: python main.py
